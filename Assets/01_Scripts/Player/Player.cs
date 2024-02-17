@@ -34,6 +34,11 @@ namespace gunggme
             Move();
         }
 
+        void Init()
+        {
+            ChangeState(PlayerState.infant);
+        }
+
         void Move()
         {
 #if UNITY_EDITOR
@@ -82,9 +87,14 @@ namespace gunggme
             else
             {
                 // todo 물건 발사
+                _curAttackSpeed = _maxAttackSpeed;
             }
         }
 
+        /// <summary>
+        /// 현재 연령대 변경
+        /// </summary>
+        /// <param name="state">바꿀 연령대</param>
         public void ChangeState(PlayerState state)
         {
             _playerState = state;
@@ -93,6 +103,24 @@ namespace gunggme
             {
                 _playerObjs[i].SetActive((int)_playerState == i);
             }
+        }
+
+        /// <summary>
+        /// 공격 속도 증가
+        /// </summary>
+        /// <param name="attackSpeed">증가시킬 공격속도</param>
+        public void AddAttackSpeed(float attackSpeed)
+        {
+            _maxAttackSpeed += attackSpeed;
+        }
+
+        /// <summary>
+        /// 공격 속도 감소
+        /// </summary>
+        /// <param name="attackSpeed">감소시킬 공격속도</param>
+        public void MinusAttackSpeed(float attackSpeed)
+        {
+            _maxAttackSpeed -= attackSpeed;
         }
     }
 }

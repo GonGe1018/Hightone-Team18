@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 27720838}
   - component: {fileID: 27720839}
+  - component: {fileID: 27720841}
+  - component: {fileID: 27720840}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -170,6 +172,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedOfTheBall: 0
   Damping: 0.2
+  _playerState: 0
+  _playerObjs:
+  - {fileID: 499693162}
+  _curAttackSpeed: 0
+  _maxAttackSpeed: 0
+--- !u!54 &27720840
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27720837}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &27720841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27720837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.21}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &499693162
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +217,7 @@ GameObject:
   - component: {fileID: 499693164}
   - component: {fileID: 499693163}
   m_Layer: 0
-  m_Name: PlayerSprite
+  m_Name: Infine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,8 +380,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788045359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.96, y: 0.2, z: 38.65}
+  m_LocalPosition: {x: 0, y: 0, z: -6.8}
+  m_LocalScale: {x: 9.96, y: 0.2, z: 8.83}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
