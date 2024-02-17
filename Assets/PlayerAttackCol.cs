@@ -20,8 +20,8 @@ namespace gunggme
             {
                 if (item.CollisionPlayerAttack())
                 {
-                    
                 }
+                other.gameObject.SetActive(false);
                 gameObject.SetActive(false);//팔 내리기
                 _player.OffAttack();
             }

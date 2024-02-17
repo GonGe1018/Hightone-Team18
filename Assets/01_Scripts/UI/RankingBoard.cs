@@ -49,7 +49,6 @@ public class RankingBoard : MonoBehaviour
                                 )
                             );
                         }
-                        Debug.Log($"sdfg : {recordDataList.Count}");
                         for(int i=0; i<recordDataList.Count; i++)
                         {
                             CreateCard(i);

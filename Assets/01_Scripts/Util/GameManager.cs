@@ -27,6 +27,7 @@ namespace gunggme
         public void SetTime(float time)
         {
             _aliveTime += time;
+            _timeText.text = TimeSpan.FromSeconds(_aliveTime).ToString(@"mm\:ss");
         }
 
         public void GameOver()

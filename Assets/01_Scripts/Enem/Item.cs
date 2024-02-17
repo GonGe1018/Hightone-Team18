@@ -57,7 +57,7 @@ public class Item : MonoBehaviour
                 speed = 1;
                 break;
             case 2:
-                speed = 0.3f;
+                speed = 0.7f;
                 break;
             case 3:
                 speed = 1.5f;
@@ -82,24 +82,7 @@ public class Item : MonoBehaviour
             return true;
         }
 
-        
-        
-
         return false;
     }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("PlayerAttack"))
-        {
-            gameObject.SetActive(false);
-        }
-
-        if (collider.CompareTag("Player"))
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-
+    
 }
