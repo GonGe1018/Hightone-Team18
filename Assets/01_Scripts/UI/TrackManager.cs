@@ -11,8 +11,7 @@ public class TrackManager : MonoBehaviour
     public void Spawn()
     {
         GameObject temp = PoolManager.Instance.Get(0);
-        temp.transform.position = spawnTransform.localPosition;
-        
+        temp.transform.localPosition = spawnTransform.position;
     }
     
 }
