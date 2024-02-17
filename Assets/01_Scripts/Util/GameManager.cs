@@ -28,6 +28,7 @@ namespace gunggme
         {
             _isAlive = false;
             // todo 게임 오버 패널 불러오기
+            UIManager.Instance.GameOverPanel();
         }
     }
 }

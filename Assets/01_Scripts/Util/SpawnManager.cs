@@ -14,6 +14,7 @@ namespace gunggme
         [Header("Spawn Time")] 
         [SerializeField] private float _curSpawnTime;
         [SerializeField] private float _maxSpawnTime;
+        [SerializeField] private float _speed;
 
         private GameManager _gameManager;
 
@@ -63,11 +64,11 @@ namespace gunggme
             Enem tempEnem = temp.GetComponent<Enem>();
             if (ranIndex == 0)
             {
-                tempEnem._speed = -Mathf.Abs(tempEnem._speed);
+                tempEnem._speed = Mathf.Abs(tempEnem._speed ) * -1 * (1 + _gameManager.AliveTime * _speed);
             }
             else
             {
-                tempEnem._speed = Mathf.Abs(tempEnem._speed);
+                tempEnem._speed = Mathf.Abs(tempEnem._speed) * (1 + _gameManager.AliveTime * _speed);
             }
         }
         
@@ -79,11 +80,11 @@ namespace gunggme
             Enem tempEnem = temp.GetComponent<Enem>();
             if (n == 0)
             {
-                tempEnem._speed *= -Mathf.Abs(tempEnem._speed);
+                tempEnem._speed =  Mathf.Abs(tempEnem._speed) * -1 * (1 + _gameManager.AliveTime * _speed);
             }
             else
             {
-                tempEnem._speed = Mathf.Abs(tempEnem._speed);
+                tempEnem._speed = Mathf.Abs(tempEnem._speed) * (1 + _gameManager.AliveTime * _speed);
             }
         }
     }
