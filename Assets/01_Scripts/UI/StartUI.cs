@@ -4,11 +4,14 @@ using BackEnd;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public class StartUI : MonoBehaviour
 {
 	[SerializeField] private GameObject nickPanel;
 	[SerializeField] private TMP_InputField nickInput;
+
+	[SerializeField] private GameObject impossibleNick;
 
 	public void SceneChange(int num)
 	{
@@ -41,5 +44,18 @@ public class StartUI : MonoBehaviour
 	public void SetActiveFalse(GameObject gameObject)
 	{
 		gameObject.SetActive(false);
+	}
+
+	public void ImpossibleNick()
+	{
+		StartCoroutine(ImpossibleNickname());
+	}
+
+	IEnumerator ImpossibleNickname()
+	{
+		impossibleNick.SetActive(true);
+		impossibleNick.transform.DOShakePosition(0.7f);
+		yield return new WaitForSeconds(0.7f);
+		impossibleNick.SetActive(false);
 	}
 }
