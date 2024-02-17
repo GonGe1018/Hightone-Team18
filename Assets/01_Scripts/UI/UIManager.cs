@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using gunggme;
 using TMPro;
 
 
@@ -60,6 +61,9 @@ public class UIManager : Singelton<UIManager>
 
 	public void SceneChange(int num)
 	{
+		Time.timeScale = 1;
+		DestroyObj();
+		SpawnManager.Instance.DestroyObj();
 		SceneManager.LoadScene(num);
 	}
 

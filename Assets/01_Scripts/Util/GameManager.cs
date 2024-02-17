@@ -24,14 +24,20 @@ namespace gunggme
             }
         }
 
+        public void SetTime(float time)
+        {
+            _aliveTime += time;
+            _timeText.text = TimeSpan.FromSeconds(_aliveTime).ToString(@"mm\:ss");
+        }
+
         public void GameOver()
         {
             _isAlive = false;
             // todo 게임 오버 패널 불러오기
             StartCoroutine(ApiHandler.Instance.PostRecord(
-                token : "asdasdfasdff",
-                name : "naasdfadsfme",
-                sec : "1234",
+                token : BackendManager.Instance.Token,
+                name : BackendManager.Instance.Nickname,
+                sec : Math.Ceiling(_aliveTime).ToString(),
                 (result) =>
                 {
                     print(result);

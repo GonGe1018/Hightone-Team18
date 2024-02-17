@@ -16,10 +16,13 @@ namespace gunggme
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.TryGetComponent(out Item item))
             {
-                Debug.Log("부딛힘2");
-                gameObject.SetActive(false);
+                if (item.CollisionPlayerAttack())
+                {
+                }
+                other.gameObject.SetActive(false);
+                gameObject.SetActive(false);//팔 내리기
                 _player.OffAttack();
             }
         }
