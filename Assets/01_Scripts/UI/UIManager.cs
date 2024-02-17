@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
+
 public class UIManager : Singelton<UIManager>
 {
 	[SerializeField] private AudioSource mainAudio;
