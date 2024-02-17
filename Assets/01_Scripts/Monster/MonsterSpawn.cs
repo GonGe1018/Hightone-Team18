@@ -27,7 +27,7 @@ public class MonsterSpawn : MonoBehaviour
 
             Vector3 vec = new Vector3(Random.Range(-x, x), 0, /*Random.Range(-z, z)*/0);
             Debug.Log(1);
-            GameObject temp = PoolManager.Instance.Get(0);
+            GameObject temp = PoolManager.Instance.Get(1);
             temp.transform.position = vec;
         }
     }
