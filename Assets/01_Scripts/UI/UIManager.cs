@@ -13,8 +13,10 @@ public class UIManager : Singelton<UIManager>
 
 	[SerializeField] private GameObject escPanel;
 	[SerializeField] private GameObject rankingPanel;
+	[SerializeField] private GameObject gameOverPanel;
 
 	[SerializeField] private TextMeshProUGUI timeTxt;
+
 
 	private bool isEsc;
 
@@ -97,5 +99,10 @@ public class UIManager : Singelton<UIManager>
 			sec = "0" + sec;
 
 		timeTxt.text = $"{min} : {sec}";
+	}
+
+	public void GameOverPanel()
+	{
+		gameOverPanel.transform.DOMoveY(0, 1);
 	}
 }
