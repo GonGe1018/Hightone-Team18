@@ -16,11 +16,14 @@ public class UIManager : Singelton<UIManager>
 	[SerializeField] private GameObject gameOverPanel;
 
 	[SerializeField] private TextMeshProUGUI timeTxt;
+	[SerializeField] private TextMeshProUGUI recordTimeTxt;
 
 
 	private bool isEsc;
 
 	private float time = 0;
+	private string min = string.Empty;
+	private string sec = string.Empty;
 
 	private void Start()
 	{
@@ -45,6 +48,9 @@ public class UIManager : Singelton<UIManager>
 
 		time += Time.deltaTime;
 		TimeTxt((int)time);
+
+		if(Input.GetKeyDown(KeyCode.F))
+			GameOverPanel();
 	}
 
 	public void Mute(bool isMute)
@@ -90,8 +96,8 @@ public class UIManager : Singelton<UIManager>
 
 	public void TimeTxt(int time)
 	{
-		string min = (time / 60).ToString();
-		string sec = (time % 60).ToString();
+		min = (time / 60).ToString();
+		sec = (time % 60).ToString();
 
 		if(int.Parse(min) < 10)
 			min = "0" + min;
@@ -103,6 +109,12 @@ public class UIManager : Singelton<UIManager>
 
 	public void GameOverPanel()
 	{
+		recordTimeTxt.text = $"{min} : {sec}";
+		timeTxt.text = $"{min} : {sec}";
 		gameOverPanel.transform.DOMoveY(0, 1);
+		Sequence seq = DOTween.Sequence();
+		seq.Append(gameOverPanel.transform.DOMoveY(0, 1));
+		seq.Insert(2f, DOTween.To(() => 0f, x => Time.timeScale = 0, 0f, 0f));
+		timeTxt.text = $"{min} : {sec}";
 	}
 }
