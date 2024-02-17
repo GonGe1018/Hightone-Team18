@@ -19,10 +19,13 @@ public class RankingBoard : MonoBehaviour
     [SerializeField] private GameObject rankCardPrefab;
     [SerializeField] private RectTransform contentTransform;
     
-    List<RecordData> recordDataList = new List<RecordData>();
+    private List<RecordData> recordDataList = new List<RecordData>();
+    private List<GameObject> cardList = new List<GameObject>();
     
     void OnEnable()
     {
+        Init();
+        recordDataList = new List<RecordData>();
         StartCoroutine(ApiHandler.Instance.GetRanking(
                 (result) =>
                 {
@@ -50,7 +53,6 @@ public class RankingBoard : MonoBehaviour
                         {
                             CreateCard(i);
                         }
-                    
                     }
                 }
             )
@@ -58,14 +60,25 @@ public class RankingBoard : MonoBehaviour
         Debug.Log("ㅁㄴㅇㄹㅁㄴㅇㄹ");
     }
 
+    void Init()
+    {
+        foreach (var card in cardList)
+        {
+            Destroy(card);
+        }
+    }
+    
+
     void CreateCard(int idx, bool isNone = false)
     {
         GameObject cardObj = Instantiate(rankCardPrefab, contentTransform);
+        cardList.Add(cardObj);
         RankCard rankCard = cardObj.GetComponent<RankCard>();
-       
+        
         if (isNone)
         {
             rankCard.nameText.text = "유저가 없습니다";
+            
             /*rankCard.recordText.text = "";
             rankCard.rankingText.text = "";*/
         }
