@@ -60,6 +60,7 @@ public class UIManager : Singelton<UIManager>
 
 	public void SceneChange(int num)
 	{
+		Time.timeScale = 1;
 		SceneManager.LoadScene(num);
 	}
 

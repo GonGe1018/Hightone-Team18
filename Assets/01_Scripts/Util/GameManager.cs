@@ -24,6 +24,11 @@ namespace gunggme
             }
         }
 
+        public void SetTime(float time)
+        {
+            _aliveTime += time;
+        }
+
         public void GameOver()
         {
             _isAlive = false;

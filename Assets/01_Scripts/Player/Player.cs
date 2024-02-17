@@ -7,6 +7,8 @@ namespace gunggme
 {
     public class Player : MonoBehaviour
     {
+        public bool isInvincible = false;
+            
         private Animator _animator;
 
         private string[] _animNames;
@@ -67,12 +69,43 @@ namespace gunggme
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.transform.CompareTag("Enemy"))
+            if (other.transform.CompareTag("Item") && other.transform.TryGetComponent(out Item item))
             {
                 // todo 게임오버 처리
                 Debug.Log("게임 오버");
-                _gameManager.GameOver();
-                gameObject.SetActive(false);
+                
+                if (item.CollisionPlayerAttack())
+                {
+                    if (isInvincible)
+                    {
+                        return;
+                    }
+
+                    gameObject.SetActive(false);
+                    _gameManager.GameOver();
+                }
+                else
+                {
+                    // todo 
+                    switch (item.ItemCategori)
+                    {
+                        case 0:
+                            // 속도 느리게
+                            StartCoroutine(SpawnManager.Instance.SlowSpeed(10f, 1));
+                            break;
+                        case 1:
+                            //1회 무적
+                            if (!isInvincible)
+                            {
+                                isInvincible = true;
+                            }
+                            break;
+                        case 2:
+                            // 기록 시간 추가
+                            _gameManager.SetTime(20);
+                            break;
+                    }
+                }
             }
         }
     }
