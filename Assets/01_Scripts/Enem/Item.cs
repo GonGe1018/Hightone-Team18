@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using gunggme;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 [Serializable]
 public enum ItemType
@@ -83,6 +83,20 @@ public class Item : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void ShootingEffect()
+    {
+        Sequence seq = DOTween.Sequence();
+        if (transform.position.x > 0)
+        {
+            seq.Append(gameObject.transform.DOJump(new Vector3(12, 0, 0), 2, 1, 1));
+        }
+        else
+        {
+            seq.Append(gameObject.transform.DOJump(new Vector3(-12, 0, 0), 2, 1, 1));
+        }
+        seq.Insert(1f, DOTween.To(() => 0f, x => gameObject.SetActive(false), 0f, 0f));
     }
     
 }
