@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Track
+  - Enemy
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX
