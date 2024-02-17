@@ -14,13 +14,9 @@ public class UIManager : Singelton<UIManager>
 	[SerializeField] private GameObject escPanel;
 	[SerializeField] private GameObject rankingPanel;
 	[SerializeField] private GameObject gameOverPanel;
-	[SerializeField] private GameObject nickPanel;
 
 	[SerializeField] private TextMeshProUGUI timeTxt;
 	[SerializeField] private TextMeshProUGUI recordTimeTxt;
-
-	[SerializeField] private TMP_InputField nickInput;
-
 
 	private bool isEsc;
 
@@ -62,9 +58,9 @@ public class UIManager : Singelton<UIManager>
 		mainAudio.mute = isMute;
 	}
 
-	public void SceneChange(string sceneName)
+	public void SceneChange(int num)
 	{
-		SceneManager.LoadScene(sceneName);
+		SceneManager.LoadScene(num);
 	}
 
 	public void BackToGame() // esc ����
@@ -120,11 +116,5 @@ public class UIManager : Singelton<UIManager>
 		seq.Append(gameOverPanel.transform.DOMoveY(0, 1));
 		seq.Insert(2f, DOTween.To(() => 0f, x => Time.timeScale = 0, 0f, 0f));
 		timeTxt.text = $"{min} : {sec}";
-	}
-
-	public void NicknameSetting()
-	{
-		string nick = nickInput.text;
-		nickPanel.SetActive(false);
 	}
 }

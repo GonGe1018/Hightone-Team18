@@ -1224,13 +1224,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1644726162}
+        m_TargetAssemblyTypeName: StartUI, Assembly-CSharp
+        m_MethodName: NicknameSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1468,7 +1468,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1644726162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: StartUI, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2012,13 +2012,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1644726162}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: StartUI, Assembly-CSharp
         m_MethodName: SceneChange
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 2d_InGameScene
           m_BoolArgument: 0
@@ -2491,17 +2491,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644726160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a95e1bd392a613449b48d60089fd7e64, type: 3}
+  m_Script: {fileID: 11500000, guid: cddc6f50bb951d046b6d289328f3e4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainAudio: {fileID: 1232552585}
-  escPanel: {fileID: 0}
-  rankingPanel: {fileID: 864033889}
-  gameOverPanel: {fileID: 0}
-  nickPanel: {fileID: 0}
-  timeTxt: {fileID: 0}
-  recordTimeTxt: {fileID: 0}
-  nickInput: {fileID: 0}
+  nickPanel: {fileID: 383107665}
+  nickInput: {fileID: 1365087881}
 --- !u!1 &1846890175
 GameObject:
   m_ObjectHideFlags: 0
