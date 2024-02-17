@@ -11,11 +11,12 @@ namespace gunggme
         [SerializeField] private GameObject _playerNameInputObj;
 
         private string _token;
+
+        private bool isFirst;
 //#if UNITY_ANDROID
 
         void OnEnable()
         {
-            StartCoroutine(StartGoogleLogin());
             if (PoolManager.Instance != null)
             {
                 PoolManager.Instance.DestroyObj();
@@ -30,6 +31,14 @@ namespace gunggme
             TheBackend.ToolKit.GoogleLogin.Android.GoogleLogin(GoogleLoginCallback);
             yield return new WaitForSeconds(0.02f);
             BackendManager.Instance.Token = _token;
+            if (isFirst)
+            {
+                _playerNameInputObj.gameObject.SetActive(true);
+            }
+            else
+            {
+                BackendManager.Instance.GetNickname();
+            }
         }
 
         private void GoogleLoginCallback(bool isSuccess, string errorMessage, string token) {
@@ -49,7 +58,7 @@ namespace gunggme
             }
             else if (bro.GetStatusCode() == "201")
             {
-                _playerNameInputObj.gameObject.SetActive(true);
+                isFirst = true;
             }
         }
 //#endif
