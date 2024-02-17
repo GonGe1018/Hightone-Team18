@@ -114,7 +114,7 @@ public class UIManager : Singelton<UIManager>
 		gameOverPanel.transform.DOMoveY(0, 1);
 		Sequence seq = DOTween.Sequence();
 		seq.Append(gameOverPanel.transform.DOMoveY(0, 1));
-		seq.Insert(2f, DOTween.To(() => 0f, x => Time.timeScale = 0, 0f, 0f));
+		seq.Insert(1f, DOTween.To(() => 0f, x => Time.timeScale = 0, 0f, 0f));
 		timeTxt.text = $"{min} : {sec}";
 	}
 }
