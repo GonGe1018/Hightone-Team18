@@ -5,9 +5,13 @@ using UnityEngine;
 
 namespace gunggme
 {
-    public class BackendManager : MonoBehaviour
+    public class BackendManager : Singelton<BackendManager>
     {
-        void Start() {
+        public string Token;
+        
+        protected override void Awake()
+        {
+            base.Awake();
             var bro = Backend.Initialize(true); // 뒤끝 초기화
 
             // 뒤끝 초기화에 대한 응답값
