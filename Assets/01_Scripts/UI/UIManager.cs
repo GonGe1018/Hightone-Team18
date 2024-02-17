@@ -8,7 +8,9 @@ using DG.Tweening;
 public class UIManager : Singltone<UIManager>
 {
 	[SerializeField] private AudioSource mainAudio;
+
 	[SerializeField] private GameObject escPanel;
+	[SerializeField] private GameObject rankingPanel;
 
 	private bool isEsc;
 
@@ -50,5 +52,23 @@ public class UIManager : Singltone<UIManager>
 		Application.Quit();
 	}
 
+	public void SetActiveTrue(GameObject gameObject)
+	{
+		gameObject.SetActive(true);
+	}
 
+	public void SetActiveFalse(GameObject gameObject)
+	{
+		gameObject.SetActive(false);
+	}
+
+	public void ButtonHover()
+	{
+		transform.localScale = Vector3.one * 1.05f;
+	}
+
+	public void ButtonResetScale()
+	{
+		transform.localScale = Vector3.one;
+	}
 }
