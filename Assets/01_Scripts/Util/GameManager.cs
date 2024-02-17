@@ -28,6 +28,16 @@ namespace gunggme
         {
             _isAlive = false;
             // todo 게임 오버 패널 불러오기
+            StartCoroutine(ApiHandler.Instance.PostRecord(
+                token : "asdasdfasdff",
+                name : "naasdfadsfme",
+                sec : "1234",
+                (result) =>
+                {
+                    print(result);
+                }
+                ));
+            
             UIManager.Instance.GameOverPanel();
         }
     }

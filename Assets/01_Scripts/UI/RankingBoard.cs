@@ -20,7 +20,7 @@ public class RankingBoard : MonoBehaviour
     [SerializeField] private RectTransform contentTransform;
     
     private List<RecordData> recordDataList = new List<RecordData>();
-    private List<GameObject> cardList = new List<GameObject>();
+    [SerializeField] private List<GameObject> cardList = new List<GameObject>();
     
     void OnEnable()
     {
@@ -49,6 +49,7 @@ public class RankingBoard : MonoBehaviour
                                 )
                             );
                         }
+                        Debug.Log($"sdfg : {recordDataList.Count}");
                         for(int i=0; i<recordDataList.Count; i++)
                         {
                             CreateCard(i);
@@ -67,7 +68,12 @@ public class RankingBoard : MonoBehaviour
             Destroy(card);
         }
     }
-    
+
+    public void ClosePanel()
+    {
+        Init();
+        gameObject.SetActive(false);
+    }
 
     void CreateCard(int idx, bool isNone = false)
     {
