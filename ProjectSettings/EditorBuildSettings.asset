@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/2d_InGameScene.unity
     guid: b56c6cb623c2d9541afc20271de90c3c
-  - enabled: 0
-    path: Assets/00_Scenes/Minchae.unity
-    guid: d1c54965b31f8fb4c8df4a3e55bae748
-  - enabled: 0
-    path: Assets/00_Scenes/TitleScene.unity
-    guid: ff6c225d746e6854180f6d04ec7743a6
   m_configObjects: {}

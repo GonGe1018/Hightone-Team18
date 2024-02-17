@@ -14,10 +14,11 @@ namespace gunggme
             _player = GetComponentInParent<Player>();
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Enemy"))
             {
+                Debug.Log("부딛힘2");
                 gameObject.SetActive(false);
                 _player.OffAttack();
             }
