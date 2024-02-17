@@ -122,11 +122,9 @@ public class UIManager : Singelton<UIManager>
 		timeTxt.text = $"{min} : {sec}";
 	}
 
-	public string NicknameSetting()
+	public void NicknameSetting()
 	{
 		string nick = nickInput.text;
 		nickPanel.SetActive(false);
-
-		return nick;
 	}
 }
