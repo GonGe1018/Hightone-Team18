@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singelton<UIManager>
 {
 	[SerializeField] private AudioSource mainAudio;
 	[SerializeField] private GameObject escPanel;
@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
 		SceneManager.LoadScene(sceneName);
 	}
 
-	public void BackToGame() // esc Á¾·á
+	public void BackToGame() // esc ï¿½ï¿½ï¿½ï¿½
 	{
 		escPanel.SetActive(false);
 		Time.timeScale = 1;
