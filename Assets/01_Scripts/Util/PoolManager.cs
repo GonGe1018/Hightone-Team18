@@ -11,8 +11,8 @@ namespace gunggme
         public GameObject[] prefab;
     
         // 풀 담당을 하는 리스트들
-        private List<GameObject>[] pools;
-
+        [SerializeField] private List<GameObject>[] pools;
+        
         private void Awake()
         {
             pools = new List<GameObject>[prefab.Length];
