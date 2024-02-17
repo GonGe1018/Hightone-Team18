@@ -14,9 +14,12 @@ public class UIManager : Singelton<UIManager>
 	[SerializeField] private GameObject escPanel;
 	[SerializeField] private GameObject rankingPanel;
 	[SerializeField] private GameObject gameOverPanel;
+	[SerializeField] private GameObject nickPanel;
 
 	[SerializeField] private TextMeshProUGUI timeTxt;
 	[SerializeField] private TextMeshProUGUI recordTimeTxt;
+
+	[SerializeField] private TMP_InputField nickInput;
 
 
 	private bool isEsc;
@@ -32,26 +35,26 @@ public class UIManager : Singelton<UIManager>
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(escPanel != null)
 		{
-			isEsc = !isEsc;
-			if(isEsc)
+			if(Input.GetKeyDown(KeyCode.Escape))
 			{
-				Time.timeScale = 0;
-				escPanel.SetActive(true);
-			}
-			else
-			{
-				BackToGame();
+				isEsc = !isEsc;
+				if(isEsc)
+				{
+					Time.timeScale = 0;
+					escPanel.SetActive(true);
+				}
+				else
+				{
+					BackToGame();
+				}
 			}
 		}
 
 		time += Time.deltaTime;
 		if(timeTxt != null)
 			TimeTxt((int)time);
-
-		if(Input.GetKeyDown(KeyCode.F))
-			GameOverPanel();
 	}
 
 	public void Mute(bool isMute)
@@ -117,5 +120,13 @@ public class UIManager : Singelton<UIManager>
 		seq.Append(gameOverPanel.transform.DOMoveY(0, 1));
 		seq.Insert(2f, DOTween.To(() => 0f, x => Time.timeScale = 0, 0f, 0f));
 		timeTxt.text = $"{min} : {sec}";
+	}
+
+	public string NicknameSetting()
+	{
+		string nick = nickInput.text;
+		nickPanel.SetActive(false);
+
+		return nick;
 	}
 }
