@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singltone<UIManager>
 {
 	[SerializeField] private AudioSource mainAudio;
 	[SerializeField] private GameObject escPanel;

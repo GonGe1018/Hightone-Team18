@@ -10,7 +10,7 @@ namespace gunggme
         {
             var camera = GetComponent<Camera>();
             var r = camera.rect;
-            var scaleheight = ((float)Screen.width / Screen.height) / (16f / 9f);
+            var scaleheight = ((float)Screen.width / Screen.height) / (9f / 16f);
             var scalewidht = 1f / scaleheight;
 
             if (scaleheight < 1f)
