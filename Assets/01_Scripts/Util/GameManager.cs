@@ -29,6 +29,13 @@ namespace gunggme
             _aliveTime += time;
             _timeText.text = TimeSpan.FromSeconds(_aliveTime).ToString(@"mm\:ss");
         }
+        
+        string SetTimeString()
+        {
+            int temp = (int)Math.Ceiling(_aliveTime);
+            return temp.ToString();
+        }
+        
 
         public void GameOver()
         {
@@ -37,7 +44,7 @@ namespace gunggme
             StartCoroutine(ApiHandler.Instance.PostRecord(
                 token : BackendManager.Instance.Token,
                 name : BackendManager.Instance.Nickname,
-                sec : Math.Ceiling(_aliveTime).ToString(),
+                sec : SetTimeString(),
                 (result) =>
                 {
                     print(result);
