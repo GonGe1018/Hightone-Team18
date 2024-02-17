@@ -94,12 +94,13 @@ public class Item : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
 
-        if (collider.CompareTag("Player"))
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Player"))
         {
             gameObject.SetActive(false);
         }
     }
-
-
 }
