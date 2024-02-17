@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace gunggme
 {
-    public class PoolManager : Singltone<PoolManager>
+    public class PoolManager : Singelton<PoolManager>
     {
         // 프리팹들 보관할 변수
         public GameObject[] prefab;
