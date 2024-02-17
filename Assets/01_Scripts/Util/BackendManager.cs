@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BackEnd;
@@ -11,7 +12,12 @@ namespace gunggme
         
         protected override void Awake()
         {
+            
             base.Awake();
+        }
+
+        private void Start()
+        {
             var bro = Backend.Initialize(true); // 뒤끝 초기화
 
             // 뒤끝 초기화에 대한 응답값

@@ -17,6 +17,10 @@ public class Singelton<T> : MonoBehaviour where T : MonoBehaviour
                 {
                     Debug.Log($"현재 씬에서 {typeof(T)} 가 존재하지 않습니다.");
                 }
+                else
+                {
+                    Debug.Log("인스턴스가 생성돠었습니다.");
+                }
             }
             return _instance;
         }
@@ -32,5 +36,11 @@ public class Singelton<T> : MonoBehaviour where T : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void DestroyObj()
+    {
+        _instance = null;
+        Destroy(gameObject);
     }
 }
