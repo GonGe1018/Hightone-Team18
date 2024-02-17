@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TheBackendSettings
   m_EditorClassIdentifier: 
   clientAppID: 3d886040-cd8b-11ee-b281-070c39c391e56970
-  signatureKey: 3d886041-cd8b-11ee-b281-070c39c391e56970
+  signatureKey: 7f98ef00-cd9e-11ee-b281-070c39c391e56970
   functionAuthKey: 
   packageName: com.highthon18.GoodNightGoodDream
   isAllPlatform: 1

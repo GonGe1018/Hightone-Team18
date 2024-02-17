@@ -8,11 +8,7 @@ namespace gunggme
 {
     public class GoogleLoginManager : MonoBehaviour
     {
-        private void Start()
-        {
-            StartGoogleLogin();
-        }
-
+#if UNITY_ANDROID
         public void StartGoogleLogin() {
             TheBackend.ToolKit.GoogleLogin.Android.GoogleLogin(GoogleLoginCallback);
         }
@@ -26,6 +22,8 @@ namespace gunggme
             Debug.Log("구글 토큰 : " + token);
             var bro = Backend.BMember.AuthorizeFederation(token, FederationType.Google);
             Debug.Log("페데레이션 로그인 결과 : " + bro);
+            BackendManager.Instance.Token = token;
         }
+#endif
     }
 }
