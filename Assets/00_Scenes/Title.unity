@@ -526,6 +526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Token: 
+  Nickname: 
+  gpgs: {fileID: 1458540291}
 --- !u!1 &336436218
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &383107666
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2422,7 +2424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3098d5e25982641b04616d78423c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerNameInputObj: {fileID: 0}
+  _playerNameInputObj: {fileID: 383107665}
 --- !u!1001 &1498012546
 PrefabInstance:
   m_ObjectHideFlags: 0

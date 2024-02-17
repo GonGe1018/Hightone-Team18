@@ -9,15 +9,13 @@ namespace gunggme
     public class BackendManager : Singelton<BackendManager>
     {
         public string Token;
+        public string Nickname;
+        public GoogleLoginManager gpgs;
         
         protected override void Awake()
         {
-            
             base.Awake();
-        }
-
-        private void Start()
-        {
+            
             var bro = Backend.Initialize(true); // 뒤끝 초기화
 
             // 뒤끝 초기화에 대한 응답값
@@ -26,6 +24,13 @@ namespace gunggme
             } else {
                 Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생
             }
+            StartCoroutine(gpgs.StartGoogleLogin());
+        }
+        public void GetNickname()
+        {
+            BackendReturnObject bro = Backend.BMember.GetUserInfo();
+            Nickname = bro.GetReturnValuetoJSON()["row"]["nickname"].ToString();
+            Debug.Log(Token + " " + Nickname);
         }
     }
 }
