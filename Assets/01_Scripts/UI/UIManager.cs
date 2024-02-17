@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -33,9 +34,9 @@ public class UIManager : MonoBehaviour
 		mainAudio.mute = isMute;
 	}
 
-	public void BackToStart()
+	public void SceneChange(string sceneName)
 	{
-		SceneManager.LoadScene(0); // 시작 씬 이동
+		SceneManager.LoadScene(sceneName);
 	}
 
 	public void BackToGame() // esc 종료
@@ -48,4 +49,6 @@ public class UIManager : MonoBehaviour
 	{
 		Application.Quit();
 	}
+
+
 }
