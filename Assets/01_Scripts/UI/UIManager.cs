@@ -47,7 +47,8 @@ public class UIManager : Singelton<UIManager>
 		}
 
 		time += Time.deltaTime;
-		TimeTxt((int)time);
+		if(timeTxt != null)
+			TimeTxt((int)time);
 
 		if(Input.GetKeyDown(KeyCode.F))
 			GameOverPanel();
