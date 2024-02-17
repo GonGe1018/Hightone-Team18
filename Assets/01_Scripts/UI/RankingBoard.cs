@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RecordData
 {
-    public string id, name, seconds;
+    public string token, name, seconds;
     
-    public RecordData(string id, string name, string seconds)
+    public RecordData(string token, string name, string seconds)
     {
-        this.id = id;
+        this.token = token;
         this.name = name;
         this.seconds = seconds;
     }
