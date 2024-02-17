@@ -20,10 +20,6 @@ public class MonsterSpawn : MonoBehaviour
 
     void Excute()
     {
-        
-        
-        
-        
         for (int i = 0; i < 10; i++)
         {
             float x = coll.bounds.max.x;
