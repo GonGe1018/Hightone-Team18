@@ -21,7 +21,7 @@ namespace gunggme
 
         void Deactivate()
         {
-            _player.SetCool(0.3f);
+            _player.SetCool(0.1f);
             gameObject.SetActive(false);//팔 내리기
             _player.OffAttack();
         }

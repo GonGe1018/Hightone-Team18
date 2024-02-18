@@ -41,7 +41,7 @@ namespace gunggme
             else
             {
                 int ranSpawn = Random.Range(1, 3);
-                if (ranSpawn == 1)//ÇÑÂÊ¿¡¼­¸¸
+                if (ranSpawn == 1)//ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½
                 {
                     SpawnItem(-1);
                 }
@@ -64,22 +64,22 @@ namespace gunggme
             
             Item tempItem = temp.GetComponent<Item>();
             
-            if (n == -1)//·£´ý
+            if (n == -1)//ï¿½ï¿½ï¿½ï¿½
             {
                 int ranIndex = Random.Range(0, _spawnTransforms.Length);
                 temp.transform.position = _spawnTransforms[ranIndex].position;
                 int moveDir = ranIndex == 0 ? -1 : 1;
-                tempItem.speed =  Mathf.Abs(tempItem.speed) * moveDir * (1 + _gameManager.AliveTime * _speed * 0.2f);
+                tempItem.speed =  Mathf.Abs(tempItem.speed) * moveDir * (1 + _gameManager.AliveTime * (_speed * 0.5f));
             }
             else if (n == 0)
             {
                 temp.transform.position = _spawnTransforms[n].position;
-                tempItem.speed =  Mathf.Abs(tempItem.speed) * -1 * (1 + _gameManager.AliveTime * _speed * 0.2f);
+                tempItem.speed =  Mathf.Abs(tempItem.speed) * -1 * (1 + _gameManager.AliveTime * (_speed * 0.5f));
             }
             else if(n == 1)
             {
                 temp.transform.position = _spawnTransforms[n].position;
-                tempItem.speed = Mathf.Abs(tempItem.speed) * (1 + _gameManager.AliveTime * _speed * 0.2f);
+                tempItem.speed = Mathf.Abs(tempItem.speed) * (1 + _gameManager.AliveTime * (_speed * 0.5f));
             }
         }
 
