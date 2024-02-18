@@ -12,8 +12,10 @@ public class SoundManager : Singelton<SoundManager>
     
     public void PrintSound(AudioClip background)
     {
+        _backgroundMusicSource.Stop();
         _backgroundMusicSource.loop = true;
-        _backgroundMusicSource.PlayOneShot(background);
+        _backgroundMusicSource.clip = background;
+        _backgroundMusicSource.Play();
     }
 
     public void PrintVFX(AudioClip vfx)

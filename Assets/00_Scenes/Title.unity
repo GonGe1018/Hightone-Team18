@@ -3923,9 +3923,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18bf134bee2ab846a0efda424608e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 0}
-  vfxSource: {fileID: 0}
-  _backgroundMusicSource: {fileID: 0}
+  _audioMixer: {fileID: 24100000, guid: c2d2801e1642b5a438a68659ebf03632, type: 2}
+  vfxSource: {fileID: 80408869}
+  _backgroundMusicSource: {fileID: 1604589258}
 --- !u!4 &1868464057
 Transform:
   m_ObjectHideFlags: 0
