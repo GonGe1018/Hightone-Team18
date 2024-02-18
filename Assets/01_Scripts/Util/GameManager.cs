@@ -26,8 +26,16 @@ namespace gunggme
 
         public void SetTime(float time)
         {
+            Debug.Log($"시간 재설정 전 :{_aliveTime}");
             _aliveTime += time;
             _timeText.text = TimeSpan.FromSeconds(_aliveTime).ToString(@"mm\:ss");
+            Debug.Log($"시간 재설정 후 :{_aliveTime}");
+        }
+
+        string GetTimer()
+        {
+            int temp = (int)Math.Ceiling(_aliveTime);
+            return temp.ToString();
         }
 
         public void GameOver()
@@ -37,7 +45,7 @@ namespace gunggme
             StartCoroutine(ApiHandler.Instance.PostRecord(
                 token : BackendManager.Instance.Token,
                 name : BackendManager.Instance.Nickname,
-                sec : Math.Ceiling(_aliveTime).ToString(),
+                sec : GetTimer(),
                 (result) =>
                 {
                     print(result);

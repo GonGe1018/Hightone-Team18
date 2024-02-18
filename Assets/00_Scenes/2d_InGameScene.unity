@@ -3821,6 +3821,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 2144044336}
   timeTxt: {fileID: 1545149907}
   recordTimeTxt: {fileID: 232380889}
+  _gameManager: {fileID: 403430227}
 --- !u!4 &1163122691
 Transform:
   m_ObjectHideFlags: 0
