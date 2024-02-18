@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
+using gunggme;
 
 public class StartUI : MonoBehaviour
 {
@@ -26,8 +27,10 @@ public class StartUI : MonoBehaviour
 		if (bro.GetStatusCode() != "204")
 		{
 			// todo 사용이 불가능하드는 텍스트 생성
+			ImpossibleNick();
 			return;
 		}
+		BackendManager.Instance.GetNickname();
 		nickPanel.SetActive(false);
 	}
 

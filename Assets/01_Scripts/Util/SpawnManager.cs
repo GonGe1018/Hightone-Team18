@@ -83,13 +83,20 @@ namespace gunggme
             }
         }
 
-        public IEnumerator SlowSpeed(float time, int speed)
+        public void TextSet(TMP_Text textUI, bool isActive)
+        {
+            textUI.gameObject.SetActive(isActive);
+        }
+
+        public IEnumerator SlowSpeed(float time, int speed, TMP_Text text)
         {
             int temp = _speed;
             _speed = temp;
+            TextSet(text, true);
             yield return new WaitForSeconds(time);
 
             _speed = temp;
+            TextSet(text, false);
         }
     }
 }

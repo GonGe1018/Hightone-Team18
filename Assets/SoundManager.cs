@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,15 @@ public class SoundManager : Singelton<SoundManager>
 
     [SerializeField] private AudioSource vfxSource;
     [SerializeField] private AudioSource _backgroundMusicSource;
-    
+
+    [SerializeField]public AudioClip[] backgroundAudioClips;
+    [SerializeField]public AudioClip[] vfxAudioClips;
+
+    private void Start()
+    {
+        PrintSound(backgroundAudioClips[0]);    
+    }
+
     public void PrintSound(AudioClip background)
     {
         _backgroundMusicSource.Stop();

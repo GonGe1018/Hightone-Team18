@@ -16,11 +16,12 @@ namespace gunggme
 
         private void OnEnable()
         {
-            Invoke(nameof(Deactivate), 0.3f);
+            Invoke(nameof(Deactivate), 0.1f);
         }
 
         void Deactivate()
         {
+            _player.SetCool(0.3f);
             gameObject.SetActive(false);//팔 내리기
             _player.OffAttack();
         }
@@ -32,10 +33,14 @@ namespace gunggme
                 if (item.CollisionPlayerAttack())
                 {
                 }
+
                 item.ShootingEffect();
-                gameObject.SetActive(false);//팔 내리기
+                SoundManager.Instance.PrintVFX(SoundManager.Instance.vfxAudioClips[2]);
+                gameObject.SetActive(false);
                 _player.OffAttack();
             }
+            
+            
         }
     }
 }

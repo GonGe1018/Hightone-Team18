@@ -46,11 +46,11 @@ public class Item : MonoBehaviour
     {
         
         int randTemp = Random.Range(0, 101);
-        if (randTemp <= 40)
+        if (randTemp <= 70)
         {
             itemCategori = Random.Range(3, 6);
         }
-        else if (randTemp <= 80)
+        else if (randTemp <= 95)
         {
             itemCategori = Random.Range(0, 2);
         }

@@ -24,8 +24,9 @@ namespace gunggme
             }
         }
 
-        public void SetTime(float time)
+        public void SetTime(float time, GameObject effectText)
         {
+            effectText.SetActive(true);
             Debug.Log($"시간 재설정 전 :{_aliveTime}");
             _aliveTime += time;
             _timeText.text = TimeSpan.FromSeconds(_aliveTime).ToString(@"mm\:ss");
