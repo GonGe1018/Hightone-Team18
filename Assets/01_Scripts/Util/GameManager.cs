@@ -52,11 +52,7 @@ namespace gunggme
             StartCoroutine(ApiHandler.Instance.PostRecord(
                 token : BackendManager.Instance.Token,
                 name : BackendManager.Instance.Nickname,
-<<<<<<< HEAD
                 sec : SetTimeString(),
-=======
-                sec : GetTimer(),
->>>>>>> 54ab61ddd2f2917eb757f86da9ef400bc17a5535
                 (result) =>
                 {
                     print(result);
