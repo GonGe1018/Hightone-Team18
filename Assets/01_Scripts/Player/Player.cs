@@ -16,6 +16,8 @@ namespace gunggme
 
         [Header("Player_Sprite")] 
         [SerializeField] private Sprite[] _sprites;
+
+        private float _handTimer;
         
         private SpriteRenderer _spriteRenderer;
         private GameManager _gameManager;
@@ -101,7 +103,7 @@ namespace gunggme
                             // 속도 느리게
                             try
                             {
-                                StartCoroutine(SpawnManager.Instance.SlowSpeed(10f, 1));
+                                StartCoroutine(SpawnManager.Instance.SlowSpeed(3f, 1));
                             }
                             catch
                             { }

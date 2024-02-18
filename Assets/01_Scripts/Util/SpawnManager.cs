@@ -69,17 +69,17 @@ namespace gunggme
                 int ranIndex = Random.Range(0, _spawnTransforms.Length);
                 temp.transform.position = _spawnTransforms[ranIndex].position;
                 int moveDir = ranIndex == 0 ? -1 : 1;
-                tempItem.speed =  Mathf.Abs(tempItem.speed) * moveDir * (1 + _gameManager.AliveTime * _speed * 0.01f);
+                tempItem.speed =  Mathf.Abs(tempItem.speed) * moveDir * (1 + _gameManager.AliveTime * _speed * 0.2f);
             }
             else if (n == 0)
             {
                 temp.transform.position = _spawnTransforms[n].position;
-                tempItem.speed =  Mathf.Abs(tempItem.speed) * -1 * (1 + _gameManager.AliveTime * _speed * 0.01f);
+                tempItem.speed =  Mathf.Abs(tempItem.speed) * -1 * (1 + _gameManager.AliveTime * _speed * 0.2f);
             }
             else if(n == 1)
             {
                 temp.transform.position = _spawnTransforms[n].position;
-                tempItem.speed = Mathf.Abs(tempItem.speed) * (1 + _gameManager.AliveTime * _speed * 0.01f);
+                tempItem.speed = Mathf.Abs(tempItem.speed) * (1 + _gameManager.AliveTime * _speed * 0.2f);
             }
         }
 

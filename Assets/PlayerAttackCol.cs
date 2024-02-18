@@ -14,6 +14,17 @@ namespace gunggme
             _player = GetComponentInParent<Player>();
         }
 
+        private void OnEnable()
+        {
+            Invoke(nameof(Deactivate), 0.3f);
+        }
+
+        void Deactivate()
+        {
+            gameObject.SetActive(false);//팔 내리기
+            _player.OffAttack();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out Item item))

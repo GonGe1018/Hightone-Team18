@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,8 @@ public class UIManager : Singelton<UIManager>
 	[SerializeField] private TextMeshProUGUI timeTxt;
 	[SerializeField] private TextMeshProUGUI recordTimeTxt;
 
+	[SerializeField]private GameManager _gameManager;
+	
 	private bool isEsc;
 
 	private float time = 0;
@@ -49,9 +52,9 @@ public class UIManager : Singelton<UIManager>
 			}
 		}
 
-		time += Time.deltaTime;
+		//time += Time.deltaTime;
 		if(timeTxt != null)
-			TimeTxt((int)time);
+			TimeTxt(_gameManager.AliveTime);
 	}
 
 	public void Mute(bool isMute)
@@ -98,27 +101,20 @@ public class UIManager : Singelton<UIManager>
 		transform.localScale = Vector3.one;
 	}
 
-	public void TimeTxt(int time)
+	public void TimeTxt(float time)
 	{
-		min = (time / 60).ToString();
-		sec = (time % 60).ToString();
-
-		if(int.Parse(min) < 10)
-			min = "0" + min;
-		if(int.Parse(sec) < 10)
-			sec = "0" + sec;
-
-		timeTxt.text = $"{min} : {sec}";
+		this.time = time;
+		timeTxt.text = TimeSpan.FromSeconds(time).ToString(@"mm\:ss");
 	}
 
 	public void GameOverPanel()
 	{
-		recordTimeTxt.text = $"{min} : {sec}";
-		timeTxt.text = $"{min} : {sec}";
+		recordTimeTxt.text =TimeSpan.FromSeconds(time).ToString(@"mm\:ss");
+		timeTxt.text = TimeSpan.FromSeconds(time).ToString(@"mm\:ss");
 		gameOverPanel.transform.DOMoveY(0, 1);
 		Sequence seq = DOTween.Sequence();
 		seq.Append(gameOverPanel.transform.DOMoveY(0, 1));
 		seq.Insert(1f, DOTween.To(() => 0f, x => Time.timeScale = 0, 0f, 0f));
-		timeTxt.text = $"{min} : {sec}";
+		timeTxt.text = TimeSpan.FromSeconds(time).ToString(@"mm\:ss");
 	}
 }

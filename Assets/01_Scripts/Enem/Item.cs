@@ -45,7 +45,19 @@ public class Item : MonoBehaviour
     void Init()
     {
         
-        itemCategori = Random.Range(0, 6);
+        int randTemp = Random.Range(0, 101);
+        if (randTemp <= 40)
+        {
+            itemCategori = Random.Range(3, 6);
+        }
+        else if (randTemp <= 80)
+        {
+            itemCategori = Random.Range(0, 2);
+        }
+        else if(randTemp <= 100)
+        {
+            itemCategori = 2;
+        }
         itemType = itemCategori >= 3 ? ItemType.Penalty : ItemType.Benefit;
         //speed = Random.Range(1.0f, 2.0f);
         switch (itemCategori)
